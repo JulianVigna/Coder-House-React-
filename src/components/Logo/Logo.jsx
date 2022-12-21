@@ -1,4 +1,3 @@
-import "./logo.css"
 
 function Logo () {
     return (
