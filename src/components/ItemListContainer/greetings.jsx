@@ -1,4 +1,4 @@
-import "./greetings"
+import "./greetings.css"
 
 function Saludo (props){
     return(
