@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Saludo from './components/ItemListContainer/greetings';
+import Greetings from './components/ItemListContainer/Greetings';
 
 function App() {
   return (
     <div >
       <NavBar/> 
       
-      <Saludo
+      <Greetings
       title="Bienvenido a Electro Mundo"
       name="Mi nombre es Julian Vigna"
       description="El proyecto se trata de un e-comerce de todos equipos electronicos."/>

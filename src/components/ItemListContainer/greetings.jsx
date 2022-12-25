@@ -1,6 +1,6 @@
 import "./greetings.css"
 
-function Saludo (props){
+function Greetings (props){
     return(
         <div >
             <h1 className="saludoIncial ">{props.title}</h1>
@@ -10,4 +10,4 @@ function Saludo (props){
     )
 }
 
-export default Saludo;
+export default Greetings;
