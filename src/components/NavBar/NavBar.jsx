@@ -5,6 +5,8 @@ import Logo from "../Logo/Logo";
 
 
 function NavBar() {
+    
+    
     return(
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">

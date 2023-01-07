@@ -1,6 +1,6 @@
-import "./greetings.css"
+import "./itemListContainer.css"
 
-function Greetings (props){
+function ItemListContainer (props){
     return(
         <div >
             <h1 className="saludoIncial ">{props.title}</h1>
@@ -10,4 +10,4 @@ function Greetings (props){
     )
 }
 
-export default Greetings;
+export default ItemListContainer;

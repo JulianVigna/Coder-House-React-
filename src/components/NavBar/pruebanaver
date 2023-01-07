@@ -1,0 +1,59 @@
+import NavItem from "./NavItem";
+import CardWidget from "./CartWidget";
+import Logo from "../Logo/Logo";
+
+
+
+
+function NavBar() {
+
+    const links = [
+        {title: "Inicio", url: "/Inicio"},
+        {title:"Tienda", url: "/Tienda"},
+        {title:"Nosotros", url: "/Nosotros"},
+    ];
+
+    return(
+        <nav className="navbar navbar-expand-lg bg-light">
+            <div className="container-fluid">
+            <Logo/>
+                <a href="/" className="navbar-brand" ></a>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+                {links.map((elemento) => {
+          console.log(elemento);
+          return (
+            <NavItem key={elemento.title} href={elemento.url}>
+              {elemento.title}
+            </NavItem>
+          );
+        })}
+
+                </ul>
+                
+                <button className="btn btn-outline-success m-4" type="submit">Login</button>
+
+                <CardWidget/>
+            
+                </div>
+            </nav>
+        
+    );
+}
+
+export default NavBar;
+
+
+
+
+const NavItem = ({href, Children}) =>{return (
+
+    <li className="nav-item">
+    <a href={href} className="nav-link active">
+      {Children}
+      </a>
+
+  </li>
+);}
+
+export default NavItem;
