@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount.jsx/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <NavBar/> 
       
       <ItemListContainer/>
-      
+      <ItemDetailContainer/>
+
     </div>
     
   );

@@ -1,15 +1,12 @@
 
-import { useState } from "react";
-import Button from "../Button/Button";
-import "./item.css";
+import React from "react";
 import ItemCount from "../ItemCount.jsx/ItemCount";
+import Button from "../Button/Button";
+function ItemDetail({ title, price, img, category, stock, detail }) {
+    
 
 
-function Item(props) {
-
-  // destructuring
-  const { title, price, img, category, stock } = props.item;
-
+    
   return (
     <div className="item-card">
       <div className="item-card_header">
@@ -22,12 +19,15 @@ function Item(props) {
         <h3 className="item-card_price">$ {price}</h3>
         <small>{category}</small>
       </div>
-      <Button padding="10px" color="red">
-        Ver más
-      </Button>
+      <h4>{detail}</h4>
       <br></br>
+      <ItemCount stock={stock}></ItemCount>
+      <br />
+      <Button padding="10px" color="red">
+        Comprar
+      </Button>
     </div>
   );
 }
 
-export default Item;
+export default ItemDetail;
