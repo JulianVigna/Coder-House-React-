@@ -6,7 +6,7 @@ import Logo from "../Logo/Logo";
 
 function NavBar() {
 
-    const links = ["Inicio", "Tienda", "Nosotros"];
+    const links = [{title:"Celulares", url: "/celulares" }, {title:"Computacion", url:"/computacion"}, {title:"Accesorios", url:"/accesorios"}];
     
     return (
         <header>
@@ -18,7 +18,7 @@ function NavBar() {
 
                     <NavItem href="/"> </NavItem>
 
-                    {links.map( (elemento) =>  ( <NavItem href="/">{elemento}</NavItem>
+                    {links.map( (elemento) =>  ( <NavItem key={elemento.title} href={elemento.url}>{elemento.title}</NavItem>
                     ))}
                     
                 </ul>

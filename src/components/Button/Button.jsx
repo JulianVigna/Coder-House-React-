@@ -5,7 +5,7 @@ import styles from "./button.css";
 
 function Button(props) {
   // React.useState() -> [ stateVar, setterStateVar ]
-  const [colorState, setColorState] = React.useState("orange");
+  const [colorState, setColorState] = React.useState("grey");
 
   let styleButton = {
     padding: props.padding,
