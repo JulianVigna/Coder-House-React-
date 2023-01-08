@@ -1,5 +1,5 @@
 import Flex from "../Flex/Flex";
-import ItemCard from "./ItemCard";
+import Item from "./Item";
 
 
 function itemListContainer() {
@@ -18,7 +18,7 @@ function itemListContainer() {
         <Flex>
             {misProductos.map((itemIterado) => {
                 return (
-                    <ItemCard id={itemIterado.id} key={itemIterado.id} item={itemIterado} />
+                    <Item id={itemIterado.id} key={itemIterado.id} item={itemIterado} />
                 );
             })}
         </Flex>

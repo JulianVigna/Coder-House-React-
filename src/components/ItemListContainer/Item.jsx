@@ -1,10 +1,10 @@
 
 import { useState } from "react";
 import Button from "../Button/Button";
-import "./itemCard.css";
+import "./item.css";
 import ItemCount from "../ItemCount.jsx/ItemCount";
 
-function ItemCard(props) {
+function Item(props) {
 
   // destructuring
   const { title, price, img, category, stock } = props.item;
@@ -30,4 +30,4 @@ function ItemCard(props) {
   );
 }
 
-export default ItemCard;
+export default Item;
