@@ -9,11 +9,7 @@ function App() {
     <div >
       <NavBar/> 
       
-      <ItemListContainer
-      title="Bienvenido a Electro Mundo"
-      name="Mi nombre es Julian Vigna"
-      description="El proyecto se trata de un e-comerce de todos equipos electronicos."/>
-
+      
       <ItemCount stock={8} />
       <ItemCount stock={3} />
     </div>

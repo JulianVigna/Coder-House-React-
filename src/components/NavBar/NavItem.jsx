@@ -1,8 +1,14 @@
-const NavItem = (props) => (
 
+const NavItem = ({ href, children }) => {
+
+
+  return (
     <li className="nav-item">
-      <a href="/" className="nav-link active">{props.text}</a>
+      <a className="nav-link" href={href}>
+        {children}
+      </a>
     </li>
-);
+  );
+};
 
 export default NavItem;

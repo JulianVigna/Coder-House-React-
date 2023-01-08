@@ -5,28 +5,29 @@ import Logo from "../Logo/Logo";
 
 
 function NavBar() {
+
+    const links = ["Inicio", "Tienda", "Nosotros"];
     
-    
-    return(
+    return (
+        <header>
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-            <Logo/>
-                    <a href="/" className="navbar-brand" ></a>
+                <Logo/>
+                
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    
-                    <NavItem text="Inicio" />
-                    <NavItem text="Tienda" />
-                    <NavItem text="Nosotros" />
-                </ul>
-                
-                <button className="btn btn-outline-success m-4" type="submit">Login</button>
+                    <NavItem href="/"> </NavItem>
 
+                    {links.map( (elemento) =>  ( <NavItem href="/">{elemento}</NavItem>
+                    ))}
+                    
+                </ul>
+                <button className="btn btn-outline-success m-4" type="submit">Login</button>
                 <CardWidget/>
-            
+
                 </div>
-            </nav>
-        
+            </nav>  
+            </header>
     );
 }
 
