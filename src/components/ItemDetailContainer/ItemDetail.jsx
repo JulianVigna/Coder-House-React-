@@ -2,10 +2,9 @@
 import React from "react";
 import ItemCount from "../ItemCount.jsx/ItemCount";
 import Button from "../Button/Button";
+
+
 function ItemDetail({ title, price, img, category, stock, detail }) {
-    
-
-
     
   return (
     <div className="item-card">

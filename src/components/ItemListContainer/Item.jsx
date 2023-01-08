@@ -1,8 +1,8 @@
 
-import { useState } from "react";
+
 import Button from "../Button/Button";
 import "./item.css";
-import ItemCount from "../ItemCount.jsx/ItemCount";
+
 
 
 function Item(props) {
