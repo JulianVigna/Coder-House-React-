@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import obtenerProductos from "../../services/mockService";
+import { useParams } from "react-router-dom";
+import obtenerProductos, { getProductByCategory } from "../../services/mockService";
 import Flex from "../Flex/Flex";
 import Item from "./Item";
 
@@ -7,16 +8,27 @@ import Item from "./Item";
 function ItemListContainer() {
 
     const [products, setProducts] = useState([]);
-  
+
+    let {categoryid} = useParams();
+
     console.log("%cRenderizando ItemListContainer", "background-color: blue");
   
     useEffect(() => {
+        if(!categoryid){
       obtenerProductos()
         .then((respuesta) => {
           setProducts(respuesta);
         })
         .catch((error) => alert(error));
-    }, []);
+    }
+    else {
+        getProductByCategory(categoryid)
+        .then((respuesta)=> {
+        setProducts(respuesta);
+    })
+    .catch((error)=> alert(error))
+    }
+    }, [categoryid]);
 
     return (
         <Flex>

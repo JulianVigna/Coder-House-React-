@@ -1,14 +1,18 @@
 
 
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getProduct } from "../../services/mockService";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState([]);
 
+    let params = useParams()
+    console.log(params)
+
     useEffect(() => {
-        getProduct()
+        getProduct(params.itemid)
             .then((respuesta) => {
                 setProduct(respuesta);
             })
