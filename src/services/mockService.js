@@ -64,7 +64,7 @@ const getProduct = (idURL) => {
 
 
 const getProductByCategory = (categoryURL) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
 
      let reqItems = database.filter( item=> item.category === categoryURL);
      setTimeout(() =>{
