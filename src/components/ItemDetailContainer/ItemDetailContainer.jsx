@@ -6,7 +6,7 @@ import { getProduct } from "../../services/mockService";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState( {title:"loading...", price: "--.--"});
 
     let params = useParams()
     console.log(params)
