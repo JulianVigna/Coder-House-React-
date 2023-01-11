@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import obtenerProductos, { getProductByCategory } from "../../services/mockService";
 import Flex from "../Flex/Flex";
-import Item from "./Item";
+
+import ItemList from "./ItemList";
 
 
 
@@ -30,14 +31,10 @@ function ItemListContainer() {
     .catch((error)=> alert(error))
     }
     }, [categoryid]);
-
+    console.log(products)
     return (
         <Flex>
-            {products.map((itemIterado) => {
-                return (
-                    <Item id={itemIterado.id} key={itemIterado.id} item={itemIterado} />
-                );
-            })}
+            <ItemList products={ItemList}/>
         </Flex>
     );
 }
