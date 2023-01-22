@@ -8,12 +8,13 @@ import { cartContext } from "../../storage/cartContext";
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState( {title:"loading...", price: "--.--"});
-
+    const [isInCart, setIsInCart] = useState(false)
     let params = useParams()
 
     const { addToCart } = useContext(cartContext);
    
     function handleAddToCart(count) {
+        setIsInCart(true);
         const productAndCount = { ...product, count: count };
         addToCart(productAndCount);
       }
@@ -28,6 +29,7 @@ function ItemDetailContainer() {
 
     return (
         <ItemDetail
+            isInCart={isInCart}
             onAddToCart={handleAddToCart}
             title={product.title}
             img={product.img}
