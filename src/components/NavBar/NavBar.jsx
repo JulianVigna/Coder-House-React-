@@ -2,12 +2,26 @@ import NavItem from "./NavItem";
 import CardWidget from "./CartWidget";
 import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
+import { cartContext } from "../../storage/cartContext"
+import Button from "../Button/Button";
+import { useContext } from "react";
 
 
-function NavBar() {
+function NavBar(props) {
 
     const links = [{title:"Inicio", url: "/"}, {title:"Celulares", url: "/category/Celulares" }, {title:"Computacion", url:"/category/Computacion"}, {title:"Accesorios", url:"/category/Accesorios"}];
+
+    const context = useContext(cartContext);
+    context.test();
+
     
+    function handleSubmit(evt) {
+        evt.preventDefault();
+        let user = evt.target.elements[0].value;
+        console.log(user);
+        props.onLogin(user);
+      }
+
     return (
         <header>
         <nav className="navbar navbar-expand-lg bg-light">
@@ -25,11 +39,18 @@ function NavBar() {
                     {links.map( (elemento) =>  ( <NavItem key={elemento.title} href={elemento.url}>{elemento.title}</NavItem>
                     ))}
                     
+                    <Button onClick={props.onLogout}>Log Out</Button>
+
+                    <form onSubmit={handleSubmit}>
+                    Iniciar sesión
+                    <input name="user"></input>
+                    </form>
                 </ul>
                 <Link to="/login">
                 <button className="btn btn-outline-success m-4" type="submit">Login</button>
                 </Link>
                 <Link to="/cart">
+
               <CardWidget />
             </Link>
 

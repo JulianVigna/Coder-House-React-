@@ -1,10 +1,12 @@
 
-import React from "react";
-import ItemCount from "../ItemCount.jsx/ItemCount";
+import React, { useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
 import Button from "../Button/Button";
 
 
-function ItemDetail({ title, price, img, category, stock, detail }) {
+function ItemDetail({ title, price, img, category, stock, detail, onAddToCart }) {
+
+
     
   return (
     <div className="item-card">
@@ -19,12 +21,15 @@ function ItemDetail({ title, price, img, category, stock, detail }) {
         <small>{category}</small>
       </div>
       <h4>{detail}</h4>
-      <br></br>
-      <ItemCount stock={stock}></ItemCount>
+      <div>
+      
+    
+        <ItemCount onAddToCart={onAddToCart} stock={stock} />
+      <a href="/cart">
+        <Button>Ir al cart</Button>
+      </a>
       <br />
-      <Button padding="10px" color="red">
-        Comprar
-      </Button>
+    </div>
     </div>
   );
 }

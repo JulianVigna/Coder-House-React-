@@ -1,21 +1,3 @@
-<div className="itemcount_container">
-<small>Agregá la cantidad deseada al carrito</small>
-<div className="itemcount_control">
-<Button disabled={count === 1} onClick={handleSubstrac}>-</Button>
-  <span className="itemcount_count">{count}</span>
-  <Button disabled={count === props.stock} onClick={handleAdd}>+</Button>
-</div>
-
-<div className="itemcount_btns">
-  <Button onClick={() => onAddToCart(count)}>Agregar al carrito</Button>
-</div>
-</div>
-
-
-
-
-
-
 
 import { useState } from "react";
 import Button from "../Button/Button";
@@ -61,5 +43,3 @@ function ItemCount(props, onAddToCart){
 }
 
 export default ItemCount;
-
-
