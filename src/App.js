@@ -7,8 +7,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound';
 import { CartProvider} from "./storage/cartContext"
 import CartContainer from './components/CartContainer/CartContainer';
+import app, {  obtenerProductos } from './services/firebase';
 
 function App() {
+
+ obtenerProductos()
 
 
   function logOutSession() {
@@ -21,7 +24,7 @@ function App() {
 
   return (
     <div >
-      
+     
       <BrowserRouter>
       <CartProvider>
         <NavBar />

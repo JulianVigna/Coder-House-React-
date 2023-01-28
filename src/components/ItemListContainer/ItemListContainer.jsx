@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import obtenerProductos, { getProductByCategory } from "../../services/mockService";
+import { getProductByCategory} from "../../services/firebase"
+import { obtenerProductos } from "../../services/firebase";
 import Flex from "../Flex/Flex";
 import Item from "./Item";
 import "./alert.css";

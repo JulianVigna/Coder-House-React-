@@ -2,9 +2,12 @@
 
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../services/mockService";
 import ItemDetail from "./ItemDetail";
 import { cartContext } from "../../storage/cartContext";
+import { getProduct } from "../../services/firebase";
+
+
+
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState( {title:"loading...", price: "--.--"});
