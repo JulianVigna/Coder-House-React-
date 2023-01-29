@@ -68,7 +68,7 @@ function CartContainer() {
   return (
     
     <>
-    { CardWidget() != 0 ?
+    { cart.length == 0 ?
 
       <div>
       <h1>Tu Carrito</h1>
