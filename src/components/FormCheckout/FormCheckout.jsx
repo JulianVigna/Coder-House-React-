@@ -54,6 +54,7 @@ export default function FormCheckout(props) {
       
       {fieldsForm.map((field) => (
         <InputForm
+          key={field.id}
           value={userData[field]}
           name={field}
           onChange={onInputChange}

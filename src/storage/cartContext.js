@@ -34,6 +34,11 @@ function CartProvider(props) {
   }
 
   function removeItem(itemid) {
+
+
+
+
+    
     // splice + findIndex
   }
 

@@ -8,6 +8,7 @@ import withReactContent from "sweetalert2-react-content";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FormCheckout from "../FormCheckout/FormCheckout";
+import { Link } from "react-router-dom";
 
 import CardWidget from "../NavBar/CartWidget";
 
@@ -72,12 +73,14 @@ function CartContainer() {
 
       <div>
       <h1>Tu Carrito</h1>
-
+      <br />
       <small>El carrito esta vacio</small>
+      <br />
+      <Link to="/">Volver al Inicio</Link>
       </div>
       :
-      <div>
 
+      <div>
       <table className="cartList">
         <thead className="cartList_head">
           <tr className="cartList_row">
