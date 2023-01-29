@@ -68,10 +68,15 @@ function CartContainer() {
   return (
     
     <>
-    { CardWidget() == 0 ?
+    { CardWidget() != 0 ?
 
-   <div>
+      <div>
       <h1>Tu Carrito</h1>
+
+      <small>El carrito esta vacio</small>
+      </div>
+      :
+      <div>
 
       <table className="cartList">
         <thead className="cartList_head">
@@ -102,14 +107,14 @@ function CartContainer() {
             </tr>
           ))}
         </tbody>
-      </table> </div>:
+      </table> 
 
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
 
         <FormCheckout onCheckout={handleCheckout} />
        
-      </div>}
+      </div></div>}
     </>
   );
 }
