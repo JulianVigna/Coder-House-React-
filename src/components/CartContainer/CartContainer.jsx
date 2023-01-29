@@ -7,13 +7,15 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import FormCheckout from "../FormCheckout/FormCheckout";
 
 function CartContainer() {
 
   const [orderId, setOrderId] = useState();
   const { cart, removeItem, getTotalPriceInCart } = useContext(cartContext);
 
-  function handleCheckout(evt) {
+  function handleCheckout(evt, userData) {
+    evt.preventDefault();
     //const items = cart.map( item => ( { id: item.id, price: item.price, count: item.count, title: item.title} )
     const items = cart.map(({ id, price, title, count }) => ({
       id,
@@ -23,11 +25,7 @@ function CartContainer() {
     }));
 
     const order = {
-      buyer: {
-        name: "Santiago",
-        email: "s@s.com",
-        phone: 123456,
-      },
+      buyer: userData,
       items: items, // id, title, price, count
       total: getTotalPriceInCart(),
       date: new Date(),
@@ -54,7 +52,7 @@ function CartContainer() {
       setOrderId(id);
     }
     sendOrder();
-    
+
   }
 
   if (orderId)
@@ -102,7 +100,9 @@ function CartContainer() {
 
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
-        <Button onClick={handleCheckout}>Finalizar Compra</Button>
+
+        <FormCheckout onCheckout={handleCheckout} />
+       
       </div>
     </>
   );
