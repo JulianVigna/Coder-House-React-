@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 
-function ItemDetail({ title, price, img, category, stock, detail, onAddToCart, isInCart }) {
+function ItemDetail({ title, price, img, category, stock, detail, onAddToCart, isInCart, stockUpdated }) {
 
 
     
@@ -31,7 +31,7 @@ function ItemDetail({ title, price, img, category, stock, detail, onAddToCart, i
           <Button>Ir al cart</Button>
         </Link>
       ) : (
-        <ItemCount onAddToCart={onAddToCart} stock={stock} />
+        <ItemCount onAddToCart={onAddToCart} stock={stockUpdated} />
       )}
     </div>
   );
