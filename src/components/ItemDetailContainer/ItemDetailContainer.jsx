@@ -14,14 +14,23 @@ function ItemDetailContainer() {
     const [isInCart, setIsInCart] = useState(false)
     let params = useParams()
 
-    const { addToCart } = useContext(cartContext);
+    const { cart, addToCart } = useContext(cartContext);
    
     function handleAddToCart(count) {
         setIsInCart(true);
         const productAndCount = { ...product, count: count };
         addToCart(productAndCount);
       }
-
+      function checkStock() {
+        let itemInCart = cart.find((item) => item.id === product.id);
+    
+        let stockUpdated = product.stock;
+    
+        if (itemInCart) {
+          stockUpdated = product.stock - itemInCart.count;
+        }
+        return stockUpdated;
+      }
     useEffect(() => {
         getProduct(params.itemid)
             .then((respuesta) => {
@@ -38,7 +47,7 @@ function ItemDetailContainer() {
             img={product.img}
             category={product.category}
             price={product.price}
-            stock={product.stock}
+            stockUpdated={checkStock()}
             detail={product.detail}
         />
     );

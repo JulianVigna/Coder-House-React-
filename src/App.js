@@ -8,6 +8,7 @@ import PageNotFound from './pages/PageNotFound';
 import { CartProvider} from "./storage/cartContext"
 import CartContainer from './components/CartContainer/CartContainer';
 import app, {  obtenerProductos } from './services/firebase';
+import { exportArray } from './services/firebase';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div >
+      <button onClick={exportArray}>exportar</button>
      
       <BrowserRouter>
       <CartProvider>

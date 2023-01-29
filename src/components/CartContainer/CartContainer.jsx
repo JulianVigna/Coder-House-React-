@@ -1,12 +1,69 @@
 import React, { useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
+import { createOrder } from "../../services/firebase";
 import Button from "../Button/Button";
 import "./cartContainer.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function CartContainer() {
+
+  const [orderId, setOrderId] = useState();
   const { cart, removeItem, getTotalPriceInCart } = useContext(cartContext);
 
-  console.log(cart.length);
+  function handleCheckout(evt) {
+    //const items = cart.map( item => ( { id: item.id, price: item.price, count: item.count, title: item.title} )
+    const items = cart.map(({ id, price, title, count }) => ({
+      id,
+      price,
+      title,
+      count,
+    }));
+
+    const order = {
+      buyer: {
+        name: "Santiago",
+        email: "s@s.com",
+        phone: 123456,
+      },
+      items: items, // id, title, price, count
+      total: getTotalPriceInCart(),
+      date: new Date(),
+    };
+
+    // 1. Sweet alert
+    /*  createOrder(order).then((id) => {
+      Swal.fire({
+        title: "Gracias por tu compra!",
+        text: `este es tu ticket id: ${id}`,
+        icon: "success",
+        confirmButtonText: "Ok!",
+      });
+    }); */
+
+    //2. Redireccionar
+    /*  createOrder(order).then((id) => {
+      navigateTo(`/thank-you/${id}`);
+    }); */
+
+    //3. Rendering condicional
+    async function sendOrder() {
+      let id = await createOrder(order);
+      setOrderId(id);
+    }
+    sendOrder();
+    
+  }
+
+  if (orderId)
+    return (
+      <div>
+        <h1>Gracias por tu compra</h1>
+        <p>El id de tu compra {orderId}</p>
+      </div>
+    );
 
   return (
     <>
@@ -45,6 +102,7 @@ function CartContainer() {
 
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
+        <Button onClick={handleCheckout}>Finalizar Compra</Button>
       </div>
     </>
   );

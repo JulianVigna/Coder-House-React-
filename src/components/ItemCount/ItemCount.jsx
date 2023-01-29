@@ -4,12 +4,11 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import "./itemCount.css";
 
-function ItemCount({ onAddToCart }) {
+function ItemCount({ onAddToCart, stock }) {
   const [count, setCount] = useState(1);
 
   function handleAdd() {
-    // count < stock
-    setCount(count + 1);
+    if (count < stock) setCount(count + 1);
   }
 
   function handleSubstract() {
