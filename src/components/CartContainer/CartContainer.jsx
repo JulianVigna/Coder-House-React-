@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FormCheckout from "../FormCheckout/FormCheckout";
 
+import CardWidget from "../NavBar/CartWidget";
+
 function CartContainer() {
 
   const [orderId, setOrderId] = useState();
@@ -64,7 +66,11 @@ function CartContainer() {
     );
 
   return (
+    
     <>
+    { CardWidget() == 0 ?
+
+   <div>
       <h1>Tu Carrito</h1>
 
       <table className="cartList">
@@ -96,14 +102,14 @@ function CartContainer() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> </div>:
 
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
 
         <FormCheckout onCheckout={handleCheckout} />
        
-      </div>
+      </div>}
     </>
   );
 }
