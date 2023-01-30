@@ -15,7 +15,7 @@ import CardWidget from "../NavBar/CartWidget";
 function CartContainer() {
 
   const [orderId, setOrderId] = useState();
-  const { cart, removeItem, getTotalPriceInCart } = useContext(cartContext);
+  const { cart, removeItem, clear, getTotalPriceInCart, getTotalPriceUnit } = useContext(cartContext);
 
   function handleCheckout(evt, userData) {
     evt.preventDefault();
@@ -102,18 +102,18 @@ function CartContainer() {
               <td>$ {item.price}</td>
               <td>{item.count}</td>
               <td>
-                <Button color="#c63224" onClick={item.removeItem}>
+                <Button color="#c63224" onClick={removeItem(item)}>
                   X
                 </Button>
               </td>
-              <th>$ --,--</th>
+              <th>$ {item.count*item.price}</th>
             </tr>
           ))}
         </tbody>
       </table> 
-
+<Button onClick={clear}>Vaciar Carrito</Button>
       <div className="cartList_detail">
-        <h4>El total de tu compra es de $ --,--</h4>
+        <h4>El total de tu compra es de $ {getTotalPriceInCart()}</h4>
 
         <FormCheckout onCheckout={handleCheckout} />
        

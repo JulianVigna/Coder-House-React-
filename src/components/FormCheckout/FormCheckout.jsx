@@ -23,14 +23,14 @@ export default function FormCheckout(props) {
   });
 
   let fieldsForm = Object.keys(userData);
-  //console.log(userData)
+
 
   function onInputChange(evt) {
     let value = evt.target.value;
     let inputName = evt.target.name;
 
     let newState = { ...userData };
-    // dynamic props
+    
     newState[inputName] = value;
     setUserData(newState);
   }
@@ -54,7 +54,7 @@ export default function FormCheckout(props) {
       
       {fieldsForm.map((field) => (
         <InputForm
-          key={field.id}
+          key={field}
           value={userData[field]}
           name={field}
           onChange={onInputChange}
@@ -73,6 +73,7 @@ export default function FormCheckout(props) {
       <button onClick={() => setUserData({ name: "", email: "", phone: "" })}>
         Limpiar
       </button>
+      
     </form>
   );
 }

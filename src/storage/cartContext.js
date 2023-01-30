@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 
-//1. Crear un context
+
 export const cartContext = createContext({ cart: [] });
 
-//2 Inicializamos el Provider
+
 function CartProvider(props) {
-  console.log("renderizamos cart provider");
+  
   const [cart, setCart] = useState([]);
 
   const test = () => console.log("test");
@@ -15,56 +15,41 @@ function CartProvider(props) {
     let newCart = cart.map((item) => item);
 
     if (isInCart !== -1) {
-      /* newCart[isInCart] */
+  
       alert("Cuidado! item ya agregado");
     } else {
       newCart.push(item);
       setCart(newCart);
     }
 
-    // operador spread -> ...
-    // Array.map
-
-    /* A.
-    let newCart = [...cart]
-    newCart.push(item);
-    setCart(newCart) */
-
-    /*B: setCart([...cart, item]); */
   }
 
-  function removeItem(itemid) {
+  const removeItem = (id) => {
+    setCart(cart.filter(product => product.id !== id));
+}
 
-
-
-
-    
-    // splice + findIndex
-  }
 
   function clear() {
-    //
+    return(
+      setCart([]))
   }
 
   function getTotalItemsInCart() {
-    // reduce 👌
 
-    let total = 5;
-    // por Cada producto(for, forEach) -> total += producto.count
-    return cart.length;
+    return cart.reduce((total, product) => total + product.count, 0);
   }
+  
 
   function getTotalPriceInCart() {
-    let total = 1500; 
-    return total;
+    return cart.reduce((total, product) => total + (product.price * product.count), 0);
   }
 
   return (
-    //3. Retornamos el Provider del context con un value personalizado
+    
     <cartContext.Provider
-      value={{ cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart, removeItem }}
+      value={{ cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart, removeItem, clear }}
     >
-      {/* 4. Renderizamos los children */}
+     
       {props.children}
     </cartContext.Provider>
   );

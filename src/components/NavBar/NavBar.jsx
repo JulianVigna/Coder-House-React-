@@ -39,15 +39,15 @@ function NavBar(props) {
                     {links.map( (elemento) =>  ( <NavItem key={elemento.title} href={elemento.url}>{elemento.title}</NavItem>
                     ))}
                     
-                    <Button onClick={props.onLogout}>Log Out</Button>
+                    
 
                     <form onSubmit={handleSubmit}>
-                    Iniciar sesión
+                    Buscador: 
                     <input name="user"></input>
                     </form>
                 </ul>
                 <Link to="/login">
-                <button className="btn btn-outline-success m-4" type="submit">Login</button>
+                
                 </Link>
                 <Link to="/cart">
 
