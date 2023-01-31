@@ -48,30 +48,13 @@ function CartContainer() {
     /*  createOrder(order).then((id) => {
       navigateTo(`/thank-you/${id}`);
     }); */
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-    })
+    
     //3. Rendering condicional
     async function sendOrder() {
       let id = await createOrder(order);
       setOrderId(id);
     }
     sendOrder();
-
   }
 
   if (orderId)
@@ -118,7 +101,25 @@ function CartContainer() {
               <td>$ {item.price}</td>
               <td>{item.count}</td>
               <td>
-                <Button color="#c63224" onClick={removeItem}>
+                <Button color="#c63224" onClick={()=>{
+                  Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(()=> removeItem(item.id)
+        
+        )
+      }
+    })
+                  
+                  
+                }}>
                   X
                 </Button>
               </td>
