@@ -15,13 +15,6 @@ function App() {
  obtenerProductos()
 
 
-  function logOutSession() {
-    console.log("logout");
-  }
-
-  function logInSession(username) {
-    alert(`Bienvenido el usuario: ${username}`);
-  }
 
   return (
     <div >

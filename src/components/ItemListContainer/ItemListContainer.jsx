@@ -45,7 +45,7 @@ function ItemListContainer() {
       }, [categoryid]);
 
     if (isLoading) {
-        return <Loader size={120} color="orange" />;
+        return <Loader size={120} color="red" />;
       } else {
         return (
           <>
