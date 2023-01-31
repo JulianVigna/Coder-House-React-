@@ -19,7 +19,7 @@ function CartContainer() {
 
   function handleCheckout(evt, userData) {
     evt.preventDefault();
-    //const items = cart.map( item => ( { id: item.id, price: item.price, count: item.count, title: item.title} )
+    
     const items = cart.map(({ id, price, title, count }) => ({
       id,
       price,
@@ -29,27 +29,11 @@ function CartContainer() {
 
     const order = {
       buyer: userData,
-      items: items, // id, title, price, count
+      items: items, 
       total: getTotalPriceInCart(),
       date: new Date(),
     };
 
-    // 1. Sweet alert
-    /*  createOrder(order).then((id) => {
-      Swal.fire({
-        title: "Gracias por tu compra!",
-        text: `este es tu ticket id: ${id}`,
-        icon: "success",
-        confirmButtonText: "Ok!",
-      });
-    }); */
-
-    //2. Redireccionar
-    /*  createOrder(order).then((id) => {
-      navigateTo(`/thank-you/${id}`);
-    }); */
-    
-    //3. Rendering condicional
     async function sendOrder() {
       let id = await createOrder(order);
       setOrderId(id);
@@ -62,6 +46,7 @@ function CartContainer() {
       <div>
         <h1>Gracias por tu compra</h1>
         <p>El id de tu compra {orderId}</p>
+        {clear()}
       </div>
     );
 
@@ -101,25 +86,7 @@ function CartContainer() {
               <td>$ {item.price}</td>
               <td>{item.count}</td>
               <td>
-                <Button color="#c63224" onClick={()=>{
-                  Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(()=> removeItem(item.id)
-        
-        )
-      }
-    })
-                  
-                  
-                }}>
+                <Button color="#c63224" onClick={()=>{removeItem(item.id)}}>
                   X
                 </Button>
               </td>
