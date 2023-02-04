@@ -2,10 +2,9 @@ import React from "react";
 import styles from "./button.css";
 
 
-// useEffect
 
 function Button(props) {
-  // React.useState() -> [ stateVar, setterStateVar ]
+
   const [colorState, setColorState] = React.useState("grey");
 
   let styleButton = {

@@ -138,6 +138,7 @@ export async function exportArray(){
         },
     ];
 
+
     for (let item of productos) {
         item.index = item.id;
         delete item.id;

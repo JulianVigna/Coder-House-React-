@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { getProductByCategory} from "../../services/firebase"
 import { obtenerProductos } from "../../services/firebase";
 import Flex from "../Flex/Flex";
-import Item from "./Item";
 import "./alert.css";
 import Loader from "../Loader/Loader";
+import { ItemList } from "./ItemList";
 
 
 function ItemListContainer() {
@@ -45,7 +45,7 @@ function ItemListContainer() {
       }, [categoryid]);
 
     if (isLoading) {
-        return <Loader size={120} color="orange" />;
+        return <Loader size={120} color="red" />;
       } else {
         return (
           <>
@@ -58,13 +58,9 @@ function ItemListContainer() {
                 </div>
               )}
         <Flex>
-            {products.map((itemIterado) => {
-                return (
-                    <Item id={itemIterado.id} key={itemIterado.id} item={itemIterado} />
-                );
-            })}
+        <ItemList items={products} />
         </Flex>
-            </Flex>
+        </Flex>
           </>
         );
       }

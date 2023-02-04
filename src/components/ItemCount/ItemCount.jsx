@@ -12,8 +12,7 @@ function ItemCount({ onAddToCart, stock }) {
   }
 
   function handleSubstract() {
-    // validar -1 -2
-    setCount(count - 1);
+    if(count > 1){setCount(count -1)}
   }
 
   return (
