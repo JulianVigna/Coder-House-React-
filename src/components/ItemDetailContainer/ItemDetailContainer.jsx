@@ -47,7 +47,7 @@ function ItemDetailContainer() {
             img={product.img}
             category={product.category}
             price={product.price}
-            stockUpdated={checkStock()}
+            stockUpdated={checkStock}
             detail={product.detail}
         />
     );
