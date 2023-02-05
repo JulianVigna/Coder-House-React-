@@ -11,7 +11,7 @@ App creada para curso de ReactJs de CoderHouse
 - Estilos con materila UI
 
 ## 1.Link Electro Mundo 
-- [Electro Mundo Store](htps://electromundostore.netlify.app/)
+ htps://electromundostore.netlify.app/  ✨
 
 ## 2.Ejecucion 
 - git clone ....
