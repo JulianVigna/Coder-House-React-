@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
@@ -47,7 +46,7 @@ function ItemDetailContainer() {
             img={product.img}
             category={product.category}
             price={product.price}
-            stockUpdated={checkStock}
+            stockUpdated={checkStock()}
             detail={product.detail}
         />
     );

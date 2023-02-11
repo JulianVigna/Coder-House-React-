@@ -25,8 +25,8 @@ function NavBar(props) {
 
     return (
         <header >
-        <nav className="navbar navbar-expand-lg bg-dark ">
-            <div className="container-fluid ">
+ <nav className="navbar navbar-expand-lg bg-light ">
+            <div className="container-fluid">
                 <Logo/>
                 
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
