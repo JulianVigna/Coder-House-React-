@@ -1,4 +1,5 @@
 
+
 import React, { createContext, useContext } from "react";
 import { cartContext } from "../../storage/cartContext";
 
@@ -21,6 +22,5 @@ const CardWidget = () => {
   };
   
   export default CardWidget;
-
 
 
