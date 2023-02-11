@@ -20,6 +20,7 @@ export default function FormCheckout(props) {
     name: "",
     phone: "",
     email: "",
+    address: "",
   });
 
   let fieldsForm = Object.keys(userData);
@@ -44,7 +45,8 @@ export default function FormCheckout(props) {
     return !(
       userData.name !== "" &&
       userData.phone !== "" &&
-      userData.email !== ""
+      userData.email !== "" &&
+      userData.address !== ""
     );
   }
 
@@ -70,7 +72,7 @@ export default function FormCheckout(props) {
         Crear orden
       </button>
 
-      <button onClick={() => setUserData({ name: "", email: "", phone: "" })}>
+      <button onClick={() => setUserData({ name: "", phone: "", email: "", address: ""  })}>
         Limpiar
       </button>
       

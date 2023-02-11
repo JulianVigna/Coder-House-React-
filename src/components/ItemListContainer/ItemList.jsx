@@ -1,4 +1,4 @@
-import "./itemListContainer.css"
+
 import Item from "./Item";
 
 

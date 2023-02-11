@@ -25,11 +25,11 @@ function NavBar(props) {
 
     return (
         <header >
-        <nav className="navbar navbar-expand-lg bg-light ">
+ <nav className="navbar navbar-expand-lg bg-light ">
             <div className="container-fluid">
                 <Logo/>
                 
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
 
                     <NavItem href="/"> </NavItem>
 
@@ -40,12 +40,8 @@ function NavBar(props) {
                     {links.map( (elemento) =>  ( <NavItem key={elemento.title} href={elemento.url}>{elemento.title}</NavItem>
                     ))}
                     
-                    
-
-                    <form onSubmit={handleSubmit}>
-                    Buscador: 
-                    <input name="user"></input>
-                    </form>
+                
+                
                 </ul>
                 <Link to="/login">
                 
