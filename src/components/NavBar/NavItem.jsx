@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./navItem.css";
 
 
 const NavItem = ({ href, children }) => {
