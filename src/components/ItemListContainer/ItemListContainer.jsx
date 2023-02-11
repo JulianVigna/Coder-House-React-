@@ -16,8 +16,6 @@ function ItemListContainer() {
 
 
     let {categoryid} = useParams();
-
-    console.log("%cRenderizando ItemListContainer", "background-color: blue");
   
 
     useEffect(() => {

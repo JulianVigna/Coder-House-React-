@@ -38,7 +38,7 @@ export default function FormCheckout(props) {
 
   function onSubmit(evt) {
     evt.preventDefault();
-    console.log(`Gracias por tu compra!`);
+    
   }
 
   function formIsInvalid() {

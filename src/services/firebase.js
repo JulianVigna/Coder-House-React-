@@ -76,18 +76,9 @@ export async function getProductByCategory(categoryUrl) {
 export async function createOrder(order) {
     const orderRef = collection(db, "order");
   
-    /*  addDoc(orderRef, order).then((respuesta) => {
-      console.log(respuesta);
-      console.log(respuesta.id);
-    }); */
-  
-    // 1- obtener de Firebase todos los productos del carrito
-    // 2- Controlar que ningun producto excede el stock
-    // 3- Update/actualizar todos los productos en Firebase
-    // 4- Creamos la orden
   
     let respuesta = await addDoc(orderRef, order);
-    console.log(respuesta, respuesta.id);
+    
   
     return respuesta.id;
 }
