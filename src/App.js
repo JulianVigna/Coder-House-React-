@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div >
-      {/* <button onClick={exportArray}>exportar</button> */}
+      <button onClick={exportArray}>exportar</button>
      
       <BrowserRouter>
       <CartProvider>
