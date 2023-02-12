@@ -14,8 +14,6 @@ function App() {
 
   obtenerProductos()
 
-
-
   return (
     <div >
       {/* <button onClick={exportArray}>exportar</button> */}
