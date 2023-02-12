@@ -8,7 +8,7 @@ function UserProvider(props) {
   const user = "Santiago";
   const logedin = true;
   function test() {
-    console.log("test");
+    
   }
 
   return (
