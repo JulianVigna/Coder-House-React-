@@ -31,14 +31,14 @@ export default function FormCheckout(props) {
     let inputName = evt.target.name;
 
     let newState = { ...userData };
-    
+
     newState[inputName] = value;
     setUserData(newState);
   }
 
   function onSubmit(evt) {
     evt.preventDefault();
-    
+
   }
 
   function formIsInvalid() {
@@ -53,7 +53,7 @@ export default function FormCheckout(props) {
   return (
     <form onSubmit={onSubmit}>
       <h1>Llena tus datos para finalizar la compra 🛍</h1>
-      
+
       {fieldsForm.map((field) => (
         <InputForm
           key={field}
@@ -72,10 +72,10 @@ export default function FormCheckout(props) {
         Crear orden
       </button>
 
-      <button onClick={() => setUserData({ name: "", phone: "", email: "", address: ""  })}>
+      <button onClick={() => setUserData({ name: "", phone: "", email: "", address: "" })}>
         Limpiar
       </button>
-      
+
     </form>
   );
 }

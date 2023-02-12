@@ -6,7 +6,7 @@ export const cartContext = createContext({ cart: [] });
 
 
 function CartProvider(props) {
-  
+
   const [cart, setCart] = useState([]);
 
   const test = () => console.log("test");
@@ -16,7 +16,7 @@ function CartProvider(props) {
     let newCart = cart.map((item) => item);
 
     if (isInCart !== -1) {
-  
+
       alert("Cuidado! item ya agregado");
     } else {
       newCart.push(item);
@@ -37,20 +37,20 @@ function CartProvider(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-         `Deleted!`,
+          `Deleted!`,
           `El item fue eliminado correctamente.`,
           `success`,
           setCart(cart.filter(product => product.id !== id))
-         
+
         )
       }
     })
-    ;
-}
+      ;
+  }
 
 
   function clear() {
-    return(
+    return (
       setCart([]))
   }
 
@@ -58,18 +58,18 @@ function CartProvider(props) {
 
     return cart.reduce((total, product) => total + product.count, 0);
   }
-  
+
 
   function getTotalPriceInCart() {
     return cart.reduce((total, product) => total + (product.price * product.count), 0);
   }
 
   return (
-    
+
     <cartContext.Provider
       value={{ cart, test, addToCart, getTotalItemsInCart, getTotalPriceInCart, removeItem, clear }}
     >
-     
+
       {props.children}
     </cartContext.Provider>
   );
